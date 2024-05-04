@@ -1,8 +1,8 @@
 import {describe, expect, it} from "vitest";
-import {Plan, Planner} from "./planner";
+import {Plan, Planner, PlannerConfiguration} from "./planner";
 
 describe("Planner", () => {
-  const newPlanner = () => new Planner();
+  const newPlanner = () => new Planner(new PlannerConfiguration());
 
   it("should create a plan for the given weeks to train", () => {
     const planner = newPlanner();
