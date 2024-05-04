@@ -21,6 +21,15 @@ export class PlannerConfiguration {
   maxWeeks = 16;
 }
 
+export const WORKOUT_TYPES = {
+  REST_OR_CROSS_TRAINING: 'REST_OR_CROSS_TRAINING',
+  SPEED: 'SPEED',
+  TEMPO: 'TEMPO',
+  LONG_RUN: 'LONG_RUN',
+  REST: 'REST',
+  CROSS_TRAINING: 'CROSS_TRAINING'
+}
+
 export class Planner {
   config = new PlannerConfiguration();
 
@@ -43,6 +52,9 @@ export class Planner {
 
     const planDuration = Math.min(parameters.weeksToTrain, this.config.maxWeeks);
     plan.trainings = new Array(planDuration).fill(0);
+    plan.trainings[0] = [
+      { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING }
+    ]
 
     return plan
   }

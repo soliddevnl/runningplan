@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {Plan, Planner, PlannerConfiguration} from "./planner";
+import {Plan, Planner, PlannerConfiguration, PlanParameters, WORKOUT_TYPES} from "./planner";
 
 describe("Planner", () => {
   const newPlanner = () => new Planner(new PlannerConfiguration());
@@ -22,5 +22,16 @@ describe("Planner", () => {
     const plan = planner.createPlan({ weeksToTrain: 17 });
 
     expect(plan.duration).toBe(16);
+  })
+
+  it('should plan a rest day or cross training day at the start of the week', () => {
+    const config = new PlannerConfiguration();
+    config.minWeeks = 1;
+    config.maxWeeks = 1;
+
+    const planner = new Planner(config);
+    const plan = planner.createPlan(new PlanParameters({ weeksToTrain: 1 }));
+
+    expect(plan.trainings[0][0].type).toBe(WORKOUT_TYPES.REST_OR_CROSS_TRAINING);
   })
 })
