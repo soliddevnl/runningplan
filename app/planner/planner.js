@@ -17,7 +17,7 @@ export class Plan {
 }
 
 export class Planner {
-  minimumPreparationWeeks = 12;
+  minWeeks = 12;
   maxWeeks = 16;
 
   /**
@@ -26,7 +26,7 @@ export class Planner {
   createPlan(parameters) {
     const plan = new Plan();
 
-    if (parameters.weeksToTrain < this.minimumPreparationWeeks) {
+    if (parameters.weeksToTrain < this.minWeeks) {
       throw new Error('The minimum time to prepare is 12 weeks');
     }
 
