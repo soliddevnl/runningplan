@@ -52,9 +52,11 @@ export class Planner {
 
     const planDuration = Math.min(parameters.weeksToTrain, this.config.maxWeeks);
     plan.trainings = new Array(planDuration).fill(0);
-    plan.trainings[0] = [
-      { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING }
-    ]
+
+    for (let i = 0; i < planDuration; i++) {
+      plan.trainings[i] = new Array(7).fill(0);
+      plan.trainings[i][0] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
+    }
 
     return plan
   }
