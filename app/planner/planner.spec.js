@@ -1,4 +1,4 @@
-import {describe, it, expect} from "vitest";
+import {describe, expect, it} from "vitest";
 import {Plan, Planner} from "./planner";
 
 describe("Planner", () => {
@@ -10,5 +10,10 @@ describe("Planner", () => {
 
     expect(plan).toBeInstanceOf(Plan);
     expect(plan.duration).toBe(12);
+  })
+
+  it('should not create a plan when there is less than 12 weeks to train', () => {
+    const planner = newPlanner();
+    expect(() => planner.createPlan({ weeksToTrain: 11 })).toThrowError('Minimum training duration is 12 weeks');
   })
 })
