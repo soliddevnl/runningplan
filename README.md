@@ -1,2 +1,2 @@
-# runningplan
-Running plan generator
+# Running plan generator
+

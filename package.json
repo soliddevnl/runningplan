@@ -1,0 +1,27 @@
+{
+  "name": "runningplan",
+  "version": "1.0.0",
+  "description": "Running plan generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soliddevnl/runningplan.git"
+  },
+  "keywords": [
+    "Running",
+    "plan",
+    "generator"
+  ],
+  "author": "Joost van Driel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soliddevnl/runningplan/issues"
+  },
+  "homepage": "https://github.com/soliddevnl/runningplan#readme",
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}
