@@ -14,6 +14,6 @@ describe("Planner", () => {
 
   it('should not create a plan when there is less than 12 weeks to train', () => {
     const planner = newPlanner();
-    expect(() => planner.createPlan({ weeksToTrain: 11 })).toThrowError('Minimum training duration is 12 weeks');
+    expect(() => planner.createPlan({ weeksToTrain: 11 })).toThrowError(/12 weeks/);
   })
 })

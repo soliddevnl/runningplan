@@ -17,14 +17,16 @@ export class Plan {
 }
 
 export class Planner {
+  minimumPreparationWeeks = 12;
+
   /**
    * @param {PlanParameters} parameters
    */
   createPlan(parameters) {
     const plan = new Plan();
 
-    if (parameters.weeksToTrain < 12) {
-      throw new Error('Minimum training duration is 12 weeks');
+    if (parameters.weeksToTrain < this.minimumPreparationWeeks) {
+      throw new Error('The minimum time to prepare is 12 weeks');
     }
 
     plan.trainings = new Array(parameters.weeksToTrain).fill(0);
