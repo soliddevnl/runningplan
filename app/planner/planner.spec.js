@@ -16,4 +16,11 @@ describe("Planner", () => {
     const planner = newPlanner();
     expect(() => planner.createPlan({ weeksToTrain: 11 })).toThrowError(/12 weeks/);
   })
+
+  it('should create a plan of maximum 16 weeks', () => {
+    const planner = newPlanner();
+    const plan = planner.createPlan({ weeksToTrain: 17 });
+
+    expect(plan.duration).toBe(16);
+  })
 })

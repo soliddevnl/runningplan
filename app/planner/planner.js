@@ -18,6 +18,7 @@ export class Plan {
 
 export class Planner {
   minimumPreparationWeeks = 12;
+  maxWeeks = 16;
 
   /**
    * @param {PlanParameters} parameters
@@ -29,7 +30,8 @@ export class Planner {
       throw new Error('The minimum time to prepare is 12 weeks');
     }
 
-    plan.trainings = new Array(parameters.weeksToTrain).fill(0);
+    const planDuration = Math.min(parameters.weeksToTrain, this.maxWeeks);
+    plan.trainings = new Array(planDuration).fill(0);
 
     return plan
   }
