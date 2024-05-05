@@ -70,4 +70,16 @@ describe("Planner", () => {
 
     expect(plan.trainings[0][6].type).toBe(WORKOUT_TYPES.LONG_RUN);
   })
+
+  it('should fill the other days with easy runs', () => {
+    const config = new PlannerConfiguration();
+    config.minWeeks = 1;
+    config.maxWeeks = 1;
+
+    const planner = new Planner(config);
+    const plan = planner.createPlan(new PlanParameters({ weeksToTrain: 1 }));
+
+    const easyRunDays = plan.trainings[0].filter(day => day.type === WORKOUT_TYPES.EASY_RUN);
+    expect(easyRunDays.length).toBe(4);
+  })
 })

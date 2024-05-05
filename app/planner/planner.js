@@ -60,8 +60,20 @@ export class Planner {
       // day 1 is a rest or cross training day
       plan.trainings[i][0] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
 
+      // day 2 is an easy run
+      plan.trainings[i][1] = { type: WORKOUT_TYPES.EASY_RUN };
+
+      // day 3 is an easy run
+      plan.trainings[i][2] = { type: WORKOUT_TYPES.EASY_RUN };
+
+      // day 4 is an easy run
+      plan.trainings[i][3] = { type: WORKOUT_TYPES.EASY_RUN };
+
       // day 5 is a rest or cross training day
       plan.trainings[i][4] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
+
+      // day 6 is an easy run
+      plan.trainings[i][5] = { type: WORKOUT_TYPES.EASY_RUN };
 
       // day 7 is a long run
       plan.trainings[i][6] = { type: WORKOUT_TYPES.LONG_RUN };
