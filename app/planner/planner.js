@@ -62,6 +62,9 @@ export class Planner {
 
       // day 5 is a rest or cross training day
       plan.trainings[i][4] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
+
+      // day 7 is a long run
+      plan.trainings[i][6] = { type: WORKOUT_TYPES.LONG_RUN };
     }
 
     return plan

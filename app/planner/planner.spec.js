@@ -59,4 +59,15 @@ describe("Planner", () => {
     expect(restOrCrossTrainingDays[0].length).toBe(2);
     expect(restOrCrossTrainingDays[1].length).toBe(2);
   })
+
+  it('should plan a long run on the last day of the week', () => {
+    const config = new PlannerConfiguration();
+    config.minWeeks = 1;
+    config.maxWeeks = 1;
+
+    const planner = new Planner(config);
+    const plan = planner.createPlan(new PlanParameters({ weeksToTrain: 1 }));
+
+    expect(plan.trainings[0][6].type).toBe(WORKOUT_TYPES.LONG_RUN);
+  })
 })
