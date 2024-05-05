@@ -46,4 +46,17 @@ describe("Planner", () => {
     expect(plan.trainings[0][0].type).toBe(WORKOUT_TYPES.REST_OR_CROSS_TRAINING);
     expect(plan.trainings[1][0].type).toBe(WORKOUT_TYPES.REST_OR_CROSS_TRAINING);
   })
+
+  it('should plan 2 rest or cross training days each week', () => {
+    const config = new PlannerConfiguration();
+    config.minWeeks = 1;
+    config.maxWeeks = 2;
+
+    const planner = new Planner(config);
+    const plan = planner.createPlan(new PlanParameters({ weeksToTrain: 2 }));
+
+    const restOrCrossTrainingDays = plan.trainings.map(week => week.filter(day => day.type === WORKOUT_TYPES.REST_OR_CROSS_TRAINING));
+    expect(restOrCrossTrainingDays[0].length).toBe(2);
+    expect(restOrCrossTrainingDays[1].length).toBe(2);
+  })
 })

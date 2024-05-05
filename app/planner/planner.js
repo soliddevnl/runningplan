@@ -23,11 +23,12 @@ export class PlannerConfiguration {
 
 export const WORKOUT_TYPES = {
   REST_OR_CROSS_TRAINING: 'REST_OR_CROSS_TRAINING',
-  SPEED: 'SPEED',
-  TEMPO: 'TEMPO',
-  LONG_RUN: 'LONG_RUN',
   REST: 'REST',
-  CROSS_TRAINING: 'CROSS_TRAINING'
+  CROSS_TRAINING: 'CROSS_TRAINING',
+  LONG_RUN: 'LONG_RUN',
+  EASY_RUN: 'EASY_RUN',
+  TEMPO_RUN: 'TEMPO_RUN',
+  INTERVAL_RUN: 'INTERVAL_RUN',
 }
 
 export class Planner {
@@ -55,7 +56,12 @@ export class Planner {
 
     for (let i = 0; i < planDuration; i++) {
       plan.trainings[i] = new Array(7).fill(0);
+
+      // day 1 is a rest or cross training day
       plan.trainings[i][0] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
+
+      // day 5 is a rest or cross training day
+      plan.trainings[i][4] = { type: WORKOUT_TYPES.REST_OR_CROSS_TRAINING };
     }
 
     return plan
